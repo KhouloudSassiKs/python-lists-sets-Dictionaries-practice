@@ -23,3 +23,27 @@ def findFirstThresholdOcc(numbers):
         if occurenceCount[number] > len(numbers) // 3:
             return number
     return -1
+
+
+def legosOccurence(boxes):
+    """
+    Counts occurrences of each lego type per box.
+
+    Parameters:
+        boxes (List[str]): List of strings, each representing legos in a box.
+
+    Returns:
+        Dict[str, Dict[int, int]]: Dictionary where keys are lego names,
+        and values are dictionaries mapping box indices to counts.
+    """
+    occurenceDictionary = {}
+    for index, box in enumerate(boxes):
+        legoOccurence = {}
+        for lego in box.split():
+            legoOccurence[lego] = legoOccurence.get(lego, 0) + 1
+        for lego, count in legoOccurence.items():
+            if lego in occurenceDictionary:
+                occurenceDictionary[lego][index] = count
+            else:
+                occurenceDictionary[lego] = {index: count}
+    return occurenceDictionary
