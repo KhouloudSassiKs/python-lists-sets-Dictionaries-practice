@@ -1,0 +1,25 @@
+def findFirstThresholdOcc(numbers):
+    """
+    Finds and returns the first number in the list that occurs more than one-third
+    of the total number of elements.
+
+    Parameters:
+        numbers (List[int]): A list of integers
+
+    Returns:
+        int: The first number that appears more than len(numbers) // 3 times.
+             Returns -1 if no such number exists.
+
+    Example:
+        >>> findFirstThresholdOcc([3, 1, 3, 3, 2, 1])
+        3
+
+        >>> findFirstThresholdOcc([1, 2, 3, 4])
+        -1
+    """
+    occurenceCount = {}
+    for number in numbers:
+        occurenceCount[number] = occurenceCount.get(number, 0) + 1
+        if occurenceCount[number] > len(numbers) // 3:
+            return number
+    return -1
