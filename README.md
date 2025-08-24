@@ -14,6 +14,7 @@ All code is written independently as part of my ongoing learning and skill devel
 Run the Python scripts directly:
 
 ```bash
+lists_practice.py
 python sets_practice.py
 python dictionaries_practice.py
 
