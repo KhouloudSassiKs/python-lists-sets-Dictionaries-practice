@@ -1,5 +1,4 @@
-def findFirstThresholdOcc(numbers):
-    """
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     Finds and returns the first number in the list that occurs more than one-third
     of the total number of elements.
 
@@ -15,6 +14,7 @@ def findFirstThresholdOcc(numbers):
 
         findFirstThresholdOcc([1, 2, 3, 4]) >>>>> -1
     """
+def findFirstThresholdOcc(numbers):
     occurenceCount = {}
     for number in numbers:
         occurenceCount[number] = occurenceCount.get(number, 0) + 1
@@ -22,9 +22,7 @@ def findFirstThresholdOcc(numbers):
             return number
     return -1
 
-
-def legosOccurence(boxes):
-    """
+ """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     Counts occurrences of each lego type per box.
 
     Parameters:
@@ -34,6 +32,7 @@ def legosOccurence(boxes):
         Dict[str, Dict[int, int]]: Dictionary where keys are lego names,
         and values are dictionaries mapping box indices to counts.
     """
+def legosOccurence(boxes):
     occurenceDictionary = {}
     for index, box in enumerate(boxes):
         legoOccurence = {}
