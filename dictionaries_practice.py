@@ -10,12 +10,10 @@ def findFirstThresholdOcc(numbers):
         int: The first number that appears more than len(numbers) // 3 times.
              Returns -1 if no such number exists.
 
-    Example:
-        >>> findFirstThresholdOcc([3, 1, 3, 3, 2, 1])
-        3
+    Examples:
+        findFirstThresholdOcc([3, 1, 3, 3, 2, 1]) >>>>> 3
 
-        >>> findFirstThresholdOcc([1, 2, 3, 4])
-        -1
+        findFirstThresholdOcc([1, 2, 3, 4]) >>>>> -1
     """
     occurenceCount = {}
     for number in numbers:
