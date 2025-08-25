@@ -44,6 +44,7 @@ def rotate_numbers(numbers):
 
         index = max_digits - 1 if index == 0 else index - 1
 
+    return [int(num) for num in rotated]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 String-based multiplication of large integers.
 
@@ -117,3 +118,53 @@ def sumNumbers(num1, num2):
         res.append(str(total % 10)) 
         i, j = i - 1, j - 1 
     return ''.join(res[::-1])
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    For each starting position i in the board:
+    - Jump forward board[i] steps at a time.
+    - Count how many moves until exiting the board.
+    - If an obstacle is encountered along the way, return -1 for that start.
+
+    Args:
+        board (list[int]): Array of jump sizes at each index.
+        obstacle (int): Value representing an obstacle in the board.
+
+    Returns:
+        list[int]: Moves needed from each index to exit, or -1 if blocked.
+
+    Example:
+        navigateBoard([2, 3, 1, 1, 4], obstacle=3) >>>>> [3, -1, 2, 2, 1]
+
+        Execution trace:
+        - Start at index 0: jumps → 0→2→3→4→exit → 3 moves
+        - Start at index 1: board[1] = 3 (obstacle), so result = -1
+        - Start at index 2: jumps → 2→3→4→exit → 2 moves
+        - Start at index 3: jumps → 3→4→exit → 2 moves
+        - Start at index 4: jumps → 4→exit → 1 move
+    """
+ def navigateBoard(board, obstacle):
+    output = []
+    n = len(board)
+
+    for i in range(n):
+        moves = 0
+        pos = i
+
+        # Immediate obstacle at start
+        if board[pos] == obstacle:
+            output.append(-1)
+            continue
+
+        while pos < n:
+            newPos = pos + board[pos]
+
+            if newPos < n and board[newPos] == obstacle:
+                # Next jump lands on an obstacle
+                moves = -1
+                break
+
+            pos = newPos
+            moves += 1
+
+        output.append(moves)
+
+    return output
