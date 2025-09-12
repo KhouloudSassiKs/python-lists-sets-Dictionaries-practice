@@ -8,6 +8,7 @@ All code is written independently as part of my ongoing learning and skill devel
 - `lists_practice.py`: Examples of Python lists operations  
 - `sets_practice.py`: Examples of Python set operations  
 - `dictionaries_practice.py`: Frequency counters and dictionary usage
+- `items-search.py` & `optimsed-search-sets.py` : Search algos that utlise python structures.
 
 ## Usage
 
